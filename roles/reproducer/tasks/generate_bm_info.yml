@@ -1,7 +1,7 @@
 ---
 - name: Ensure directories exist
   ansible.builtin.file:
-    path: "{{ cifmw_reproducer_controller_basedir }}/{{ item }}"
+    path: "{{ cifmw_reproducer_controller0_basedir }}/{{ item }}"
     state: directory
     mode: "0755"
   loop:
@@ -29,14 +29,14 @@
 - name: Check if baremetal-info.yml exists
   register: _stat_baremetal_info_file
   ansible.builtin.stat:
-    path: "{{ cifmw_reproducer_controller_basedir }}/parameters/baremetal-info.yml"
+    path: "{{ cifmw_reproducer_controller0_basedir }}/parameters/baremetal-info.yml"
 
 - name: Slurp current baremetal-info file into _oringal_cifmw_baremetal_hosts var
   when: _stat_baremetal_info_file.stat.exists
   block:
     - name: Get content of baremetal-info file
       ansible.builtin.slurp:
-        src: "{{ cifmw_reproducer_controller_basedir }}/parameters/baremetal-info.yml"
+        src: "{{ cifmw_reproducer_controller0_basedir }}/parameters/baremetal-info.yml"
       register: _baremetal_info_file
 
     - name: Interpret remote file content as yaml
@@ -47,7 +47,7 @@
 
 - name: Load cifmw_libvirt_manager_mac_map fact from file
   vars:
-    _file: "{{ cifmw_reproducer_controller_basedir }}/artifacts/interfaces-info.yml"
+    _file: "{{ cifmw_reproducer_controller0_basedir }}/artifacts/interfaces-info.yml"
   when:
     - cifmw_libvirt_manager_mac_map is not defined
   block:
@@ -118,7 +118,7 @@
     _content:
       cifmw_baremetal_hosts: "{{ libvirt_manager_bm_info_data }}"
   ansible.builtin.copy:
-    dest: "{{ cifmw_reproducer_controller_basedir }}/parameters/baremetal-info.yml"
+    dest: "{{ cifmw_reproducer_controller0_basedir }}/parameters/baremetal-info.yml"
     content: "{{ _content | to_nice_yaml }}"
     mode: "0644"
 

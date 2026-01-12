@@ -42,11 +42,6 @@ pass this directory to any `ansible-playbook -i ~/reproducer-inventory [...]` in
 on any hosts. The inventory also provides the correct information about remote accesses, like the
 `ansible_user` and `ansible_ssh_private_key_file`.
 
-### Other generated contents
-
-Depending on the use-case, there may be some other generated contents. We'll list them once we hit a scenario
-involving them.
-
 ## Deployed content
 
 Let's take a look at the deployed machines, networks and so on. The referenced resources are the default

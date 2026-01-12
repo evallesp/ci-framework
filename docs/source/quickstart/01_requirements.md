@@ -19,13 +19,6 @@ CRC instance usually needs 24G of RAM, and around 100G of disk space. The ansibl
 can run with 2 or 4G of ram, and needs around 15G of disk space. The rest is at discretion for
 the compute nodes, and would depends on your actual workload (if you intend to run tests and so on).
 
-### Time to deploy
-
-It of course depends on the hypervisor. Running on a dedicated, remote server, gets these kind of timings:
-
-- Deploy from scratch the lightweight layout: ~30 minutes
-- Re-deploy the lightweight layout: ~10 minutes
-
 # Needed packages
 In order to be able to start consuming the Framework, the following packages
 must be present on your system:

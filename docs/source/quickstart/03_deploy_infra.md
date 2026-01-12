@@ -43,17 +43,6 @@ all:
 In case you want to run the framework against your laptop/desktop, you can avoid the `hypervisor-1` host.
 ~~~
 
-#### Multi hypervisor case
-
-~~~{warning}
-This feature isn't tested nor used by the CI Framework team.
-~~~
-
-If you want to involve two hypervisors (or more), you have to provide some more custom parameters, as well
-as override some of the `3-nodes.yml` variable file. You can for instance take
-[this environment file](../files/multinode-params.yml) as an example. There are comments allowing you
-to understand the needed bits.
-
 ### Custom variables file
 
 You may want to override some of the default settings provided in the
